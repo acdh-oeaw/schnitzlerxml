@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/acdh-oeaw/schnitzlerxml/master/schema/schnitzlerxml_einzelseite.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<seite xmlns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns">
+<zone>
+<line_AS><AS>di</AS><AS_G>e</AS_G><AS> mir scho</AS><AS_G>n</AS_G><AS> gestorben sind, so krampft sich da</AS><AS_G>s</AS_G><AS></AS></line_AS>
+<line_AS><AS>Herz nicht, wie sonst . . . der Tod ist etwas freund-</AS></line_AS>
+<line_AS><AS>liches geworden . . . . . er geht unter uns herum,</AS></line_AS>
+<line_AS><AS>er will uns nichts böses thun . .</AS></line_AS>
+<line_AS><AS>. . . . </AS></line_AS>
+<line_AS><AS>4.</AS><AS> Etwas seltsames ist heut geschehn . . </AS><AS_X>Es rührt mich, es</AS_X></line_AS>
+<line_AS><AS>Es ist der Tag, an welchem sie mir allmonatlich</AS></line_AS>
+<line_AS><AS>die Blumen schickte . . . . </AS><AS_X>die Blumen sind auch</AS_X></line_AS>
+<line_AS_ohne><AS>Und die Blume</AS><AS_G>n</AS_G><AS> sind wiede</AS><AS_G>r</AS_G><AS> gekomen . . . . als . .</AS></line_AS_ohne>
+<line_AS_E><AS_E/><AS_Eu>Sie</AS_Eu></line_AS_E>
+<line_AS_ohne><AS>als . . . als hätte sich nichts verändert – </AS><AS_X>Sie sin</AS_X><AS_G_X>d</AS_G_X> <AS_X>D</AS_X><AS_G_X>ie</AS_G_X></line_AS_ohne>
+<line_AS_E><AS_Eu>kamen frühmorgens mit der Post,</AS_Eu></line_AS_E>
+<line_AS><AS_X>Frühpost hat sie mir gebracht</AS_X><AS>, in einem </AS><AS_X>klein</AS_X><AS_G_X>en</AS_G_X></line_AS>
+<line_AS_ohne><AS>weißen langen schmalen Carton, - einige Nelken</AS></line_AS_ohne>
+<line_AS_E><AS_Eu>da lagen sie </AS_Eu></line_AS_E>
+<line_AS_E><AS_Eu_X>wie in ein</AS_Eu_X><AS_Eu_G_X>em</AS_Eu_G_X><AS_Eu_X> Sarge.</AS_Eu_X></line_AS_E>
+<line_AS><AS>und Veilchen, – es war ganz früh</AS><AS_Ox>,</AS_Ox><AS>; . . ich lag noch z</AS><AS_G>u</AS_G></line_AS>
+<line_AS><AS>Bett, als man mir das P</AS><AS>a</AS><AS>ckche</AS><AS_G>n</AS_G><AS> brachte,</AS></line_AS>
+</zone>
+</seite>
+
+
+
