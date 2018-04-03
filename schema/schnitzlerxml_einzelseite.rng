@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schema "schnitzlerxml" für Einzelseite -->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="seite"/>
+  </start>
+
+  
+
+
+  <!-- Seite -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="seite">
+    <element name="seite">
+      <a:documentation>Blatt mit transkribiertem Text.</a:documentation>
+      <optional>
+        <attribute name="facs"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="zone"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <!-- Zone -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="zone">
+    <element name="zone">
+      <a:documentation>Textbereich</a:documentation>
+      <optional>
+        <attribute name="facs"/>
+      </optional>
+      <zeroOrMore>
+        <interleave>
+          <!-- Standardzeilentypen -->
+          <optional>
+            <ref name="line_AS"/>
+          </optional>
+          <optional>
+            <ref name="line_AS_E"/>
+          </optional>
+          <optional>
+            <ref name="line_AS_ohne"/>
+          </optional>
+          <!-- weitere Zeilentypen ergänzen -->
+
+
+        </interleave>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <!-- Zeilen -->
+
+  <!-- line_AS: gewöhnliche Textzeile -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="line_AS">
+    <element name="line_AS">
+      <a:documentation>Zeile in Schnitzlerschrift (1. Schicht)</a:documentation>
+      <optional>
+        <attribute name="facs"/>
+      </optional>
+      <ref name="textzeile"/>
+    </element>
+  </define>
+  
+  <!-- line_AS_ohne: gewöhnliche Textzeile ohne Abstand im Satz -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="line_AS_ohne">
+    <element name="line_AS_ohne">
+      <a:documentation>Zeile in Schnitzlerschrift (1. Schicht) ohne Abstand im Satz</a:documentation>
+      <optional>
+        <attribute name="facs"/>
+      </optional>
+      <ref name="textzeile"/>
+    </element>
+  </define>
+
+  <!-- line_AS_E: Einfügezeile -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="line_AS_E">
+    <element name="line_AS_E">
+      <a:documentation>Einfügezeile</a:documentation>
+      <optional>
+        <attribute name="facs"/>
+      </optional>
+      <ref name="einfuegezeile"/>
+    </element>
+  </define>
+
+  <!-- Textzeilen: allgemeines Muster -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="textzeile">
+    <!-- Elemente in einer Textzeile -->
+    <zeroOrMore>
+      <interleave>
+        <optional>
+          <!-- normaler Text: Vorsicht, kann Schwierigkeiten machen, wenn nicht strict AS verwendet wird -->
+          <text/>
+        </optional>
+
+        <optional>
+          <element name="AS">
+            <a:documentation>Schnitzler-Grundschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_G">
+            <a:documentation>"Gräuung"</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <!-- VEREINHEITLICHEN -->
+          <element name="AS_G_K">
+            <a:documentation>Gegräuter, kursiver Text. Lateinschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_G_K_U">
+            <a:documentation>Gegräuter, kursiver Text + Unterstreichung.
+              Lateinschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_G_K_X">
+            <a:documentation>Geräuter, kursiver, gestrichener Text.</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_G_U">
+            <a:documentation> Gegräuter, unterstrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_G_X">
+            <a:documentation>Gestrichener Text, Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_G_Xx">
+            <a:documentation>Gegräute doppelte Streichung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+
+        <optional>
+          <element name="AS_K">
+            <a:documentation>Kursiver Text in Schnitzlerschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+
+        <optional>
+          <element name="AS_K_U">
+            <a:documentation>Kursiver und unterstrichener Text in Schnitzlerschrift.
+              Lateinschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_K_X">
+            <a:documentation>Kursiver und unterstrichener Text in Schnitzlerschrift.
+              Lateinschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_K_Xx">
+            <a:documentation>Kursiver, doppelt gestrichener Text. Genetische
+              Streichung.</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_O">
+            <a:documentation>Hochgestellter Text. Verwendet für das ? bei unsicheren
+              Lesarten</a:documentation>
+            <value>?</value>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_Ox">
+            <a:documentation>Überschriebener Text (hochgestellt und gestrichen)</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_Ox_G">
+            <a:documentation>Gegräuter, überschriebener Text (grau, hochgestellt und
+              gestrichen)</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_Ox_K">
+            <a:documentation>Kursiver, überschriebener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+
+        <optional>
+          <element name="AS_Ox_U">
+            <a:documentation>Überschriebener unterstrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_Oz">
+            <a:documentation>Überschriebenes Satzzeichen (hochgestellt und
+              gestrichen)</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+
+        <optional>
+          <element name="AS_U">
+            <a:documentation>Unterstrichener Text in Schnitzlerschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_U_X">
+            <a:documentation>Unterstrichener und gestrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+
+
+        <optional>
+          <element name="AS_X">
+            <a:documentation>Streichung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_Xx">
+            <a:documentation>Genetische Streichung (doppelt gestrichen)</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+
+      </interleave>
+    </zeroOrMore>
+
+  </define>
+
+  <!-- Einfügezeile: allgemeines Muster; noch nicht im CSS -->
+  <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="einfuegezeile">
+    <zeroOrMore>
+      <interleave>
+        <optional>
+          <text/>
+        </optional>
+
+        <!-- aus dem alten Schema -->
+        <optional>
+          <element name="AS_E">
+            <a:documentation>Einfügung mittig in der ersten Schicht</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_E_G">
+            <a:documentation>Einfügung mittig in der ersten Schicht, Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_E_G_U">
+            <a:documentation>Unterstrichene Einfügung mittig in der ersten Schicht.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_E_G_U_X">
+            <a:documentation>Unterstrichene und gestrichene Einfügung mittig in der ersten Schicht.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_E_G_X">
+            <a:documentation>Gestrichene mittige Einfügung. Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_E_K">
+            <a:documentation>Mittige Einfügung in Lateinschrift (kursiv)</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_E_O">
+            <a:documentation>Mittige, hochgestellte Einfügung. Verwendet für ? in unsicherer
+              Lesart</a:documentation>
+            <value>?</value>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_E_Ox">
+            <a:documentation>Überschriebener mittig eingefügter Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_E_Ox_G">
+            <a:documentation>Überschriebener mittig eingefügter Text. Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_E_U">
+            <a:documentation>Mittig eingefügter, unterstrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_E_U_X">
+            <a:documentation>Mittig eingefügter, unterstrichener und gestrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_E_X">
+            <a:documentation>Mittig eingefügter, gestrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <optional>
+          <element name="AS_E_Xx">
+            <a:documentation>Doppelt gestrichener, mittig eingefügter Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <!-- Einfügungen unterhalb der Hauptzeile: Achtung: „oben“ in Schnitzler-XML bezieht sich auf die Einfügung, d.h. meint räumlich oben, also nah an der oberen Zeile; „below“ bezieht sich auf die Haupt-Zeile und meint räumlich unterhalb. -->
+        
+        <optional>
+          <element name="AS_Eo">
+            <a:documentation>In der Zeile nach oben versetzter Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_G">
+            <a:documentation>In der Zeile nach oben versetzter gegräuter Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_G_K">
+            <a:documentation>In der Zeile nach oben versetzter, kursiver, gegräuter Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_G_U">
+            <a:documentation>In der Zeile nach oben versetzter unterstrichener und gegräuter
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_G_X">
+            <a:documentation>In der Zeile nach oben versetzter gestrichener und gegräuter
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_K">
+            <a:documentation>In der Zeile nach oben versetzter, kursiver
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_K_X">
+            <a:documentation>In der Zeile nach oben versetzter, kursiver und gestrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_O">
+            <a:documentation>In der Zeile nach oben versetzter, hochgestellter Text. Verwendet für ?
+              bei unsicherer Lesart</a:documentation>
+            <value>?</value>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_Ox">
+            <a:documentation>In der Zeile nach oben versetzter überschriebener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_Ox_G">
+            <a:documentation>In der Zeile nach oben versetzter überschriebener und gegräuter
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        
+        <optional>
+          <element name="AS_Eo_U">
+            <a:documentation>In der Zeile nach oben versetzter unterstrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_U_X">
+            <a:documentation>In der Zeile nach oben versetzter, unterstrichener und gestrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_X">
+            <a:documentation>In der Zeile nach oben versetzter gestrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_Xx">
+            <a:documentation>In der Zeile nach oben versetzter doppelt gestrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+        <!-- Einfügungen oberhalb der Zeile:  Achtung: „unten“ in Schnitzler-XML bezieht sich auf die Einfügung, d.h. meint räumlich unten, also nah an der unteren Zeile; „above“ bezieht sich auf die Haupt-Zeile und meint räumlich oberhalb.-->
+
+        <optional>
+          <element name="AS_Eu">
+            <a:documentation>In der Zeile nach unten versetzter eingefügter Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_G">
+            <a:documentation>In der Zeile nach unten versetzter eingefügter Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_G_K">
+            <a:documentation>In der Zeile nach unten versetzter, eingefügter, kursiver Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        
+        <optional>
+          <element name="AS_Eu_G_U">
+            <a:documentation>In der Zeile nach unten versetzter, unterstrichener, eingefügter Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_G_X">
+            <a:documentation>In der Zeile nach unten versetzter, gestrichener, eingefügter Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_G_Xx">
+            <a:documentation>In der Zeile nach unten versetzter, doppelt gestrichener, eingefügter Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_K">
+            <a:documentation>In der Zeile nach unten versetzter, kursiver eingefügter Text.</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_K_X">
+            <a:documentation>In der Zeile nach unten versetzter, kursiver, gestrichener eingefügter Text.</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_O">
+            <a:documentation>In der Zeile nach unten versetzter, hochgestellter, eingefügter Text.
+              Verwendet für ? in unsicherer Lesart</a:documentation>
+            <value>?</value>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_Ox">
+            <a:documentation>In der Zeile nach unten versetzter, überschriebener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
+          <element name="AS_Eu_Ox_G">
+            <a:documentation>In der Zeile nach unten versetzter, überschriebener Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_U">
+            <a:documentation>In der Zeile nach unten versetzter, unterstrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_U_X">
+            <a:documentation>In der Zeile nach unten versetzter, unterstrichener Text.
+              Gräuung</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_X">
+            <a:documentation>In der Zeile nach unten versetzter, gestrichener Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_Xx">
+            <a:documentation>In der Zeile nach unten versetzter, doppelt gestrichener
+              Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+
+      </interleave>
+    </zeroOrMore>
+  </define>
+</grammar>
+
