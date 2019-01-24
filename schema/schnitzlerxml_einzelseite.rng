@@ -327,6 +327,12 @@
           </element>
         </optional>
         <optional>
+          <element name="AS_E_K_U">
+            <a:documentation>Mittige Einfügung in Lateinschrift (kursiv und unterstrichen)</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        <optional>
           <element name="AS_E_O">
             <a:documentation>Mittige, hochgestellte Einfügung. Verwendet für ? in unsicherer
               Lesart</a:documentation>
@@ -418,6 +424,13 @@
           <element name="AS_Eo_K">
             <a:documentation>In der Zeile nach oben versetzter, kursiver
               Text</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eo_K_U">
+            <a:documentation>In der Zeile nach oben versetzte Einfügung in Lateinschrift (kursiv und unterstrichen)</a:documentation>
             <text/>
           </element>
         </optional>
@@ -539,6 +552,13 @@
         <optional>
           <element name="AS_Eu_K">
             <a:documentation>In der Zeile nach unten versetzter, kursiver eingefügter Text.</a:documentation>
+            <text/>
+          </element>
+        </optional>
+        
+        <optional>
+          <element name="AS_Eu_K_U">
+            <a:documentation>In der Zeile nach unten versetzte Einfügung in Lateinschrift (kursiv und unterstrichen)</a:documentation>
             <text/>
           </element>
         </optional>
