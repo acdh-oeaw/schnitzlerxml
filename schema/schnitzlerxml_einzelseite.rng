@@ -169,6 +169,14 @@
             <text/>
           </element>
         </optional>
+        
+        <optional>
+          <element name="AS_K_U_X">
+            <a:documentation>Gestrichener, kursiver und unterstrichener Text in Schnitzlerschrift.
+              Lateinschrift</a:documentation>
+            <text/>
+          </element>
+        </optional>
 
         <optional>
           <element name="AS_K_X">
