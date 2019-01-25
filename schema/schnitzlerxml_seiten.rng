@@ -4,9 +4,20 @@
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <start>
-    <ref name="seite"/>
+    <ref name="seiten"/>
   </start>
 
+<!-- Seiten -->
+  
+  
+    <define ns="http://www.arthur-schnitzler.at/historisch-kritische-ausgabe/ns" name="seiten">
+      <element name="seiten">
+        <a:documentation>Blatt mit transkribiertem Text.</a:documentation>
+        <zeroOrMore>
+          <ref name="seite"/>
+        </zeroOrMore>
+      </element>
+    </define>
   
 
 
@@ -320,7 +331,6 @@
             <text/>
           </element>
         </optional>
-        
 
         <optional>
           <element name="AS_E_G_X">
